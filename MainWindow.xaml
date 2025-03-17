@@ -1,0 +1,107 @@
+﻿<Window x:Class="SboxCllGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sbox CLL Tool"
+        Width="500"
+        Height="320"
+        Background="#222">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#222" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#FFA500" />
+        <SolidColorBrush x:Key="LightForegroundBrush" Color="#FFF" />
+
+        <Style x:Key="FlatButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource LightForegroundBrush}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Margin" Value="6" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource LightForegroundBrush}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="6" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#333" />
+            <Setter Property="Foreground" Value="{StaticResource LightForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="#444" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="Margin" Value="6" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <Button Content="Extract CLL"
+                    Click="BtnExtract_Click"
+                    Style="{StaticResource FlatButtonStyle}" />
+            <Button Content="Pack Folder to CLL"
+                    Click="BtnPack_Click"
+                    Style="{StaticResource FlatButtonStyle}" />
+        </StackPanel>
+
+        <Border Grid.Row="1" BorderBrush="#333" BorderThickness="0" Background="#222" Padding="0" Margin="0,20,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="CLL Metadata"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           FontWeight="Bold"
+                           FontSize="16"
+                           Margin="0,0,0,10" />
+
+                <TextBlock Text="Package Ident:"
+                           Grid.Row="1"
+                           Grid.Column="0" />
+                <TextBox x:Name="TxtPackageIdent"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Width="300"
+                         Text="my.cool.package" />
+
+                <TextBlock Text="Compiler Settings:"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                <TextBox x:Name="TxtCompilerSettings"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Width="300"
+                         Text="Debug" />
+
+                <TextBlock Text="Project References:"
+                           Grid.Row="3"
+                           Grid.Column="0" />
+                <TextBox x:Name="TxtProjectReferences"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Width="300" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
